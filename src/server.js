@@ -87,6 +87,22 @@ app.put('/veiculos/:id', async (req, res) => {
 	}
 });
 
+app.delete('/veiculos/:id', async (req, res) => {
+	try {
+		const veiculo = await Veiculos.findByPk(req.params.id);
+
+		if (!veiculo) {
+			res.status(404).json({ error: 'Veículo não encontrado' });
+		}
+
+		await veiculo.destroy();
+
+		res.status(200).json({ message: 'Veículo excluído com sucesso' });
+	} catch (error) {
+		res.status(500).json({ error: 'Erro ao excluir o veículo' });
+	}
+});
+
 app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`)
 });
