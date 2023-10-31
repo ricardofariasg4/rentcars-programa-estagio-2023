@@ -1,10 +1,3 @@
-const express = require('express')
-const app = express()
-const port = 3000
-const Veiculos = require('../src/models/veiculos.js');
-
-app.use(express.json());
-
 // 3.2 Endpoints da API
 // O projeto fornece os seguintes endpoints para gerenciar veículos:
 
@@ -13,6 +6,32 @@ app.use(express.json());
 // POST /veiculos: Cria um novo veículo.
 // PUT /veiculos/:id: Atualiza os detalhes de um veículo existente com base no ID.
 // DELETE /veiculos/:id: Exclui um veículo com base no ID.
+
+const express = require('express')
+const app = express()
+const port = 3000
+const Veiculos = require('./veiculos');
+
+app.use(express.json());
+
+// Add headers before the routes are defined
+app.use(function (req, res, next) {
+
+    // Origens permitidas (está como todos no momento pois não tenho um servidor web)
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Methods permitidos
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Headers permitidos
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Para o caso de precisar incluir cookies nas requisições
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
+    next();
+});
 
 app.get('/', function (req, res) {
 	res.send('<h1>API em execução...</h1>');
@@ -104,5 +123,5 @@ app.delete('/veiculos/:id', async (req, res) => {
 });
 
 app.listen(port, () => {
-	console.log(`Example app listening on port ${port}`)
+	console.log(`App executando na porta ${port}`)
 });

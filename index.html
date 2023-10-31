@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CRUD RentCars 2023</title>
+        <link rel="stylesheet" href="./frontend/css/apoio.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="container">
+
+			<div class="text-center">
+				<h1>CRUD de Veículos</h1>
+            	<h2>Adicionar Novo Veículo</h2>
+			</div>
+
+            <form id="form-crud">
+                
+                <label class="form-label" for="locadora">Locadora:</label>
+                <input class="form-control" name="locadora" type="text" id="locadora" />
+                
+                <label class="form-label" for="modelo">Modelo:</label>
+                <input class="form-control" name="modelo" type="text" id="modelo" />
+            
+                <label class="form-label" for="marca">Marca:</label>
+                <input class="form-control" name="marca" type="text" id="marca" />
+            
+                <!-- Integer -->
+                <label class="form-label" for="ano">Ano:</label>
+                <input class="form-control" name="ano" type="number" id="ano" min="1950" max="2024"/>
+                
+                <label class="form-label" for="motor">Motor:</label>
+                <input class="form-control" name="motor" type="number" step="0.1" id="motor" min="1.0" max="16.0"/>
+            
+                <!-- Integer -->
+                <label class="form-label" for="portas">Portas:</label>
+                <input class="form-control" name="portas" type="number" id="portas" min="1" max="8"/>
+                
+                <datalist id="cambio">
+                    <option value="Automático"></option>
+                    <option value="Manual"></option>
+                </datalist>
+                
+                <label class="form-label" for="cambio">Câmbio:</label>
+                <input class="form-control" name="cambio" list="cambio" />
+                
+                <div class="form-check form-switch">
+					<input class="form-check-input" name="ar_condicionado" type="checkbox" role="switch" id="ar_condicionado" />
+					<label class="form-check-label" for="ar_condicionado">Ar condicionado</label>
+				</div>
+
+				<!-- Botão de envio -->
+                <div class="text-center">
+                    <button id="btn_adicionar" class="btn btn-success botao" type="submit">Adicionar</button>
+				    <input onclick="listarDados()" id="btn_listar" class="btn btn-primary botao" type="button" value="Atualizar lista" />
+                </div>
+
+                <br>         
+            </form>      
+
+            <table style="border: 1px solid black; width: 100%;">
+                <tr>
+                    <td style="border: 1px solid black;">Locadora</td>
+                    <td style="border: 1px solid black;">Modelo</td>
+                    <td style="border: 1px solid black;">Marca</td>
+                    <td style="border: 1px solid black;">Ano</td>
+                    <td style="border: 1px solid black;">Motor</td>
+                    <td style="border: 1px solid black;">Portas</td>
+                    <td style="border: 1px solid black;">Câmbio</td>
+                    <td style="border: 1px solid black;">Ar Condicionado</td>
+                    <td style="border: 1px solid black;">Ações</td>
+                </tr>
+            </table>
+
+        </div>
+    </body>
+	<script src="./frontend/js/submit.js"></script>
+</html>
