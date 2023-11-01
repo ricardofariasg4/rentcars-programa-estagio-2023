@@ -40,19 +40,11 @@
 			<label class="form-label" for="portas">Portas:</label>
 			<input class="form-control" name="portas" type="number" id="portas" min="1" max="8" />
 
-			<!-- <datalist id="cambio">
-				<option value="Automático"></option>
-				<option value="Manual"></option>
-			</datalist>
-
-			<label class="form-label" for="cambio">Câmbio:</label>
-			<input class="form-control" name="cambio" list="cambio" /> -->
-
 			<label class="form-label" for="cambio">Câmbio:</label>
 			<select class="form-control" id="cambio">
 				<option>Selecionar</option>
-				<option value="1">Automático</option>
-				<option value="2">Manual</option>
+				<option value="Automático">Automático</option>
+				<option value="Manual">Manual</option>
 			</select>
 
 			<div class="form-check form-switch">
@@ -62,27 +54,27 @@
 
 			<!-- Botão de envio -->
 			<div class="text-center">
-				<button id="btn_adicionar" class="btn btn-success botao" type="submit">Adicionar</button>
-				<input onclick="listarDados()" id="btn_listar" class="btn btn-primary botao" type="button"
-					value="Atualizar lista" />
+				<button id="btnAdd" class="btn btn-success botao" type="submit">Adicionar</button>
+				<button id="btnList" class="btn btn-primary botao" type="button">Listar</button>
 			</div>
-
 			<br>
 		</form>
 
-		<table style="border: 1px solid black; width: 100%;">
-			<tr>
-				<td style="border: 1px solid black;">Locadora</td>
-				<td style="border: 1px solid black;">Modelo</td>
-				<td style="border: 1px solid black;">Marca</td>
-				<td style="border: 1px solid black;">Ano</td>
-				<td style="border: 1px solid black;">Motor</td>
-				<td style="border: 1px solid black;">Portas</td>
-				<td style="border: 1px solid black;">Câmbio</td>
-				<td style="border: 1px solid black;">Ar Condicionado</td>
-				<td style="border: 1px solid black;">Ações</td>
+		<table id="carsTable" style="border: 1px solid black; width: 100%;">
+			<tr class="text-center">
+				<td class="linha-tabela">ID</td>
+				<td class="linha-tabela">Locadora</td>
+				<td class="linha-tabela">Modelo</td>
+				<td class="linha-tabela">Marca</td>
+				<td class="linha-tabela">Ano</td>
+				<td class="linha-tabela">Motor</td>
+				<td class="linha-tabela">Portas</td>
+				<td class="linha-tabela">Câmbio</td>
+				<td class="linha-tabela">Ar Condicionado</td>
+				<td class="linha-tabela">Ações</td>
 			</tr>
 		</table>
+		<br>
 
 	</div>
 </body>

@@ -1,3 +1,7 @@
 .botao {
     margin-bottom: 5px;
 }
+
+.linha-tabela {
+    border: 1px solid black;
+}
