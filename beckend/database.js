@@ -12,9 +12,9 @@ const sequelize = new Sequelize('testing', 'root', 'ANSKk08aPEDbFjDO', {
 async function testDatabaseConnection() {
   try {
     await sequelize.authenticate();
-    console.log('Conexao realizada');
+    console.log('Conexao com o MySQL bem sucedida!');
   } catch (error) {
-    console.error('Conexao nao realizada', error);
+    console.error('A conexao com o MySQL falhou!', error);
   }
 }
 

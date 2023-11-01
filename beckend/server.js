@@ -8,13 +8,14 @@
 // DELETE /veiculos/:id: Exclui um veículo com base no ID.
 
 const express = require('express')
+const Veiculos = require('./veiculos');
 const app = express()
 const port = 3000
-const Veiculos = require('./veiculos');
 
+// Trata o body da requisição como JSON
 app.use(express.json());
 
-// Add headers before the routes are defined
+// Adiciona os headers necessários para o CORS
 app.use(function (req, res, next) {
 
     // Origens permitidas (está como todos no momento pois não tenho um servidor web)

@@ -64,4 +64,9 @@ const Veiculos = database.define('veiculos', {
     }
 });
 
+// Sincroniza o model com o banco de dados
+(async () => {
+    await database.sync();
+})();
+
 module.exports = Veiculos;
