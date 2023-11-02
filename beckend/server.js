@@ -79,7 +79,9 @@ app.post('/veiculos', async (req, res) => {
 			ar_condicionado
 		});
 
-		res.status(201).json(veiculo);
+		const veiculos = await Veiculos.findAll(); // Retornando todos posso remontar a lista no frontend (não sei se é seguro...)
+		
+		res.status(201).json(veiculos);
 	} catch (error) {
 		console.error('Erro ao criar um novo veículo:', error);
     	res.status(500).json({ error: 'Erro ao criar um novo veículo' });
@@ -89,7 +91,7 @@ app.post('/veiculos', async (req, res) => {
 // Atualiza um veículo específico usando o ID
 app.put('/veiculos/:id', async (req, res) => {
 	try {
-		const { locadora, modelo, marca, ano, motor, portas, cambio, ar_condicionado } = req.body;
+		// const { locadora, modelo, marca, ano, motor, portas, cambio, ar_condicionado } = req.body;
 
 		const veiculo = await Veiculos.findByPk(req.params.id);
 
@@ -102,7 +104,6 @@ app.put('/veiculos/:id', async (req, res) => {
 
 		res.status(200).json(veiculo);
 	} catch (error) {
-		console.error('Erro ao atualizar o veículo:', error);
 		res.status(500).json({ error: 'Erro ao atualizar o veículo' });
 	}
 });
@@ -117,7 +118,9 @@ app.delete('/veiculos/:id', async (req, res) => {
 
 		await veiculo.destroy();
 
-		res.status(200).json({ message: 'Veículo excluído com sucesso' });
+		const veiculos = await Veiculos.findAll(); // Retornando todos posso remontar a lista no frontend (não sei se é seguro...)
+		// res.status(200).json({ message: 'Veículo excluído com sucesso' });
+		res.status(200).json(veiculos);
 	} catch (error) {
 		res.status(500).json({ error: 'Erro ao excluir o veículo' });
 	}

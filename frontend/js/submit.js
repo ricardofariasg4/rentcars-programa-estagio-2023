@@ -65,11 +65,13 @@ function fillTable (result)
 		let innerButtonUpdate = document.createElement('button');
 		innerButtonUpdate.className = 'btn btn-secondary';
 		innerButtonUpdate.textContent = 'Update';
+		innerButtonUpdate.id = result[i]['id'];
 		
 		let innerButtonDelete = document.createElement('button');
 		innerButtonDelete.className = 'btn btn-danger';
 		innerButtonDelete.textContent = 'Delete';
-		
+		innerButtonDelete.id = 'btnDelete-'+result[i]['id'];
+
 		innerDiv.appendChild(innerButtonUpdate);
 		innerDiv.appendChild(innerButtonDelete);
 		innerCell.appendChild(innerDiv);
@@ -86,6 +88,7 @@ function addEvents ()
 {
 	const btnList = document.getElementById('btnList')
 	const form = document.getElementById('form-crud')
+	const table = document.getElementById('carsTable')
 	const endpoint = 'http://localhost:3000/veiculos'
 		
 	form.addEventListener('submit', (evt) => {
@@ -112,6 +115,7 @@ function addEvents ()
 		.then((response) => response.json())
 		.then((result) => {
 			console.log('Dados enviados com sucesso:', result)
+			fillTable(result)
 		})
 		.catch((error) => {
 			console.error('Erro ao enviar dados:', error)
@@ -131,6 +135,29 @@ function addEvents ()
 		.catch((error) => {
 			console.error('Erro ao receber dados:', error)
 		})
+	})
+
+	table.addEventListener('click', (evt) => {
+		let deleteText = 'btnDelete'
+		let updateText = 'btnUpdate'
+
+		if (evt.target.id.includes(deleteText)) {
+			let id = evt.target.id.split('-')[1]
+			console.log('vamos deletar o id', id)
+
+			fetch(endpoint+'/'+id, {
+				method: 'DELETE',
+				mode: 'cors'
+			})
+			.then((response) => response.json())
+			.then((result) => {
+				console.log('Dados deletados com sucesso:', result)
+				fillTable(result)
+			})
+			.catch((error) => {
+				console.error('Erro ao deletar dados:', error)
+			})
+		}
 	})
 }
 
