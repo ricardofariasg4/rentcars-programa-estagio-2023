@@ -5,3 +5,15 @@
 .linha-tabela {
     border: 1px solid black;
 }
+
+.main-container {
+    width: 95%;
+    margin: auto;
+}
+
+/* style="border: 1px solid black; width: 100%;" */
+
+.main-table {
+    width: 100%;
+    border: 1px solid black;
+}

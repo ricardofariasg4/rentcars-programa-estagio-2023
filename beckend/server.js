@@ -102,7 +102,9 @@ app.put('/veiculos/:id', async (req, res) => {
 			
 		await veiculo.save();
 
-		res.status(200).json(veiculo);
+		// res.status(200).json(veiculo);
+		const veiculos = await Veiculos.findAll(); // Retornando todos posso remontar a lista no frontend (não sei se é seguro...)
+		res.status(201).json(veiculos);
 	} catch (error) {
 		res.status(500).json({ error: 'Erro ao atualizar o veículo' });
 	}

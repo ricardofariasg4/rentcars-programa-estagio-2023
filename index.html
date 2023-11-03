@@ -6,12 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>CRUD RentCars 2023</title>
 	<link rel="stylesheet" href="./frontend/css/apoio.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 
 <body>
-	<div class="container">
+	<div class="main-container">
 
 		<div class="text-center">
 			<h1>CRUD de Veículos</h1>
@@ -54,13 +54,13 @@
 
 			<!-- Botão de envio -->
 			<div class="text-center">
-				<button id="btnAdd" class="btn btn-success botao" type="submit">Adicionar</button>
-				<button id="btnList" class="btn btn-primary botao" type="button">Listar</button>
+				<button id="btnAdd" class="btn btn-success botao" type="submit"><i class="bi bi-plus-square"></i> Adicionar</button>
+				<button id="btnList" class="btn btn-primary botao" type="button"><i class="bi bi-list-ol"></i> Listar</i></button>
 			</div>
 			<br>
 		</form>
 
-		<table id="carsTable" style="border: 1px solid black; width: 100%;">
+		<table id="carsTable" class="main-table table-primary">
 			<tr class="text-center">
 				<td class="linha-tabela">ID</td>
 				<td class="linha-tabela">Locadora</td>
@@ -75,7 +75,6 @@
 			</tr>
 		</table>
 		<br>
-
 	</div>
 </body>
 <script src="./frontend/js/submit.js"></script>
