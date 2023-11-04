@@ -25,7 +25,7 @@ function fillTable (result)
 		newRow.className = 'text-center'
 		for (let j in interestingData)
 		{
-			console.log(result[i][j])
+			// console.log(result[i][interestingData[j]]) 
 			let cell = document.createElement('td')
 			cell.classList.add('linha-tabela')
 
@@ -102,7 +102,7 @@ function addEvents ()
 		
 		data.ar_condicionado = data.ar_condicionado === 'on' // Converte para booleano para ficar conveniente no backend
 
-		console.log(data)
+		// console.log(data) // Dados do formulário
 
 		// Enviar o JSON para o endpoint especificado
 		fetch(endpoint, {
@@ -116,6 +116,7 @@ function addEvents ()
 		.then((response) => response.json())
 		.then((result) => {
 			console.log('Dados enviados com sucesso:', result)
+			form.reset()
 			fillTable(result)
 		})
 		.catch((error) => {
@@ -125,7 +126,7 @@ function addEvents ()
 
 	btnList.addEventListener('click', (evt) => {
 		evt.preventDefault() // Evita o comportamento padrão
-		console.log('vamos listar')
+		console.log('Listando...')
 		// Cria um objeto HTML para inserir depois
 		fetch(endpoint)
 		.then((response) => response.json())
@@ -168,24 +169,24 @@ function addEvents ()
 			let array = ['id', 'locadora', 'modelo', 'marca', 'ano', 'motor', 'portas', 'cambio', 'ar_condicionado']
 
 			// Obtém a referência para a tabela
-			const table = document.getElementById('carsTable');
+			const table = document.getElementById('carsTable')
 
 			// Obtém todas as linhas da tabela
-			const lines = table.getElementsByTagName('tr');
+			const lines = table.getElementsByTagName('tr')
 
 			// Loop através das linhas
 			for (let i = 1; i < lines.length; i++) {
-				const celulas = lines[i].getElementsByTagName('td'); // Obtém todas as células da linha
+				const celulas = lines[i].getElementsByTagName('td') // Obtém todas as células da linha
 
 				// Loop através das células
 				for (let j = 0; j < celulas.length-1; j++) {
 					idCapturado = celulas[0].textContent
 					
-					let valorCelula = celulas[j].textContent; // Obtém o conteúdo da célula
-					console.log('idCapturadoLinha = ', idCapturado, 'id = ', id)
+					let valorCelula = celulas[j].textContent // Obtém o conteúdo da célula
+					// console.log('idCapturadoLinha = ', idCapturado, 'id = ', id) // Apenas para verificar se pegava o id correto
 					
 					if (idCapturado != id.toString())
-						break;
+						break
 
 					array[j] = valorCelula
 				}
@@ -214,8 +215,7 @@ function addEvents ()
 
 				btnUpdate.className = 'btn btn-primary'
 				btnUpdate.id = 'btnUpdate'
-				btnUpdate.textContent = 'Atualizar veículo'
-				btnUpdate.innerHTML = '<i class="bi bi-arrow-clockwise"></i> Atualizar'
+				btnUpdate.innerHTML = '<i class="bi bi-arrow-clockwise"></i> Atualizar veículo'
 				document.getElementById('form-crud').appendChild(btnUpdate)
 
 				// Estilizando o botão
@@ -227,6 +227,10 @@ function addEvents ()
 				//Adiciona um <br> para separar os botões
 				let br = document.createElement('br')
 				document.getElementById('form-crud').appendChild(br)
+
+				// Atualiza texto h2 da pagina
+				document.getElementById("subtitulo").textContent = "Altere as informações desejadas e clique em \"Atualizar veículo\""
+				document.getElementById("subtitulo").style.color = "blue"
 			}
 
 			// Após a captura dos dados e a construção do botão, adiciona um evento de atualização
@@ -254,7 +258,7 @@ function addEvents ()
 				.then((response) => response.json())
 				.then((result) => {
 					console.log('Dados atualizados com sucesso:', result)
-					location.reload(true);
+					location.reload(true)
 				})
 				.catch((error) => {
 					console.error('Erro ao atualizar dados:', error)

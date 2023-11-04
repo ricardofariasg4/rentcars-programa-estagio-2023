@@ -12,8 +12,8 @@
 //     "createdAt": "2023-10-23T14:37:35.917Z"
 // }
 
-const { DataTypes } = require('sequelize');
-const database = require('./database');
+const { DataTypes } = require('sequelize')
+const database = require('./database')
 
 const Veiculos = database.define('veiculos', {
     id: {
@@ -62,11 +62,11 @@ const Veiculos = database.define('veiculos', {
         type: DataTypes.BOOLEAN,
         allowNull: false
     }
-});
+})
 
 // Sincroniza o model com o banco de dados
 (async () => {
-    await database.sync();
-})();
+    await database.sync()
+})()
 
-module.exports = Veiculos;
+module.exports = Veiculos

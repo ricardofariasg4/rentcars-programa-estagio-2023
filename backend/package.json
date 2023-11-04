@@ -2,9 +2,9 @@
   "name": "crud-rentcars",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon ./beckend/server"
+    "start": "nodemon server.js"
   },
   "author": "Ricardo Farias",
   "license": "MIT",
