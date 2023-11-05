@@ -13,6 +13,9 @@ Para executar o projeto, basta ter o Docker instalado no computador, e com ele, 
 
 OBS: Caso queira omitir os logs use o operador '&' após o comando.<br>
 
+## Vídeo executando a aplicação:
+https://youtu.be/uNr6mRnvvvI
+
 # Histórico do desenvolvedor
 ## Dia 30/10
 Hoje é o início do desafio e sinceramente nem sei por onde começar, não faço ideia do que é sequelize, express js ou qualquer outra tecnologia abordada para o desenvolvimento do desafio. Ao menos sei o que é docker e aparentemente não vou ter dificuldades (eu acho) para subir o container com o banco de dados MySQL. Meu Javascript nesse momento é muito básico...
